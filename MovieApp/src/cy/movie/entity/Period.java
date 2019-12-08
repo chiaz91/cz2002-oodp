@@ -4,6 +4,9 @@ import java.io.Serializable;
 import java.util.Comparator;
 import java.util.Date;
 
+import cy.movie.AppConstants;
+import cy.movie.util.DateUtility;
+
 public class Period implements Comparable<Period>, Serializable{
 	private Date start;
 	private Date end;
@@ -51,5 +54,11 @@ public class Period implements Comparable<Period>, Serializable{
 				.thenComparing(Period::getEnd)
 				.compare(this, other);
 	}
+
+	@Override
+	public String toString() {
+		return "Period [" + DateUtility.formatDate(AppConstants.FORMAT_DATETIME, start) + " - " + DateUtility.formatDate(AppConstants.FORMAT_DATETIME, end) + "]";
+	}
+	
 	
 }

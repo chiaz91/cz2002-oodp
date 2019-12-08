@@ -48,9 +48,10 @@ public class MovieType implements Serializable{
 	public void setPriceStudent(double priceStudent) {
 		this.priceStudent = priceStudent;
 	}
-	
-	
-	
-	
+
+	@Override
+	public String toString() {
+		return "MovieType [type=" + type + "]";
+	}
 	
 }

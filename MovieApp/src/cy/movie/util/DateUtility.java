@@ -1,6 +1,7 @@
 package cy.movie.util;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.regex.Matcher;
@@ -133,7 +134,7 @@ public class DateUtility implements AppConstants{
 	 * @return Date
 	 */
 	public static Date changeTime(Date date, int hr, int min) {
-		Log.d(String.format("[Test] changeTime= date:%s, hr:%d, min:%d", formatDate(FORMAT_DATETIME_DETAIL, date), hr, min));
+//		Log.d(String.format("[Test] changeTime= date:%s, hr:%d, min:%d", formatDate(FORMAT_DATETIME_DETAIL, date), hr, min));
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTime(date);
 		calendar.set(Calendar.HOUR_OF_DAY, hr);
@@ -148,5 +149,17 @@ public class DateUtility implements AppConstants{
 	public static double calDifference(Date start, Date end, TimeUnit unit) {
 		Period p = new Period(start, end);
 		return (1.0*p.getDurationMs())/unit.toMs();
+	}
+	
+	public static ArrayList<Date> getListDates(Date start, int numDates){
+		ArrayList<Date> dates = new ArrayList<Date>();
+		dates.add(start);
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(start);
+		for (int i = 0; i < numDates-1; i++) {
+			calendar.add(Calendar.DAY_OF_YEAR, 1);
+			dates.add(calendar.getTime());
+		}
+		return dates;
 	}
 }

@@ -1,5 +1,7 @@
 package cy.movie.util;
 
+import java.util.List;
+
 public class Utility {
 	
 	public static double round(double number) {
@@ -22,6 +24,19 @@ public class Utility {
 		} else {
 			return string.substring(0, max-3)+"...";
 		}
+	}
+	
+	public static String listToString(List<?> list) {
+		StringBuilder sb = new StringBuilder();
+		
+		for (int i = 0; i < list.size(); i++) {
+			if (i>0) {
+				sb.append(", ");
+			}
+			sb.append(list.get(i).toString());
+		}
+		return sb.toString();
+		
 	}
 
 }

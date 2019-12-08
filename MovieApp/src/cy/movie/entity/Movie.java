@@ -5,20 +5,22 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Date;
 
+import cy.movie.value.MovieStatus;
+
 
 public class Movie implements Serializable, Comparable<Movie>{
 	private String title;
 	private String synopsis;
 	private int durationMin;
 	private Date dateRelease;
-	private String status;
+	private MovieStatus status;
 	private String director;
 	private ArrayList<String> casts;
 	private double overalRating;
 	private ArrayList<Review> reviews; 
 	private double totalSales;
 	
-	public Movie(String title, String synopsis, int durationMin, Date dateRelease, String status, String director,
+	public Movie(String title, String synopsis, int durationMin, Date dateRelease, MovieStatus status, String director,
 			ArrayList<String> casts, double overalRating, ArrayList<Review> reviews, double totalSales) {
 		super();
 		this.title = title;
@@ -33,7 +35,7 @@ public class Movie implements Serializable, Comparable<Movie>{
 		this.totalSales = totalSales;
 	}
 	
-	public Movie(String title, String synopsis, int durationMin, Date dateRelease, String status, String director,
+	public Movie(String title, String synopsis, int durationMin, Date dateRelease, MovieStatus status, String director,
 			ArrayList<String> casts ) {
 		this( title,  synopsis,  durationMin, dateRelease,  status,  director, casts, 0, new ArrayList<Review>(),  0);
 	}
@@ -62,11 +64,11 @@ public class Movie implements Serializable, Comparable<Movie>{
 		this.dateRelease = dateRelease;
 	}
 
-	public String getStatus() {
+	public MovieStatus getStatus() {
 		return status;
 	}
 
-	public void setStatus(String status) {
+	public void setStatus(MovieStatus status) {
 		this.status = status;
 	}
 
@@ -145,8 +147,9 @@ public class Movie implements Serializable, Comparable<Movie>{
 			return false;
 		return true;
 	}
-	
-	
-	
 
+	@Override
+	public String toString() {
+		return "Movie [" + title + ", " + durationMin + "m]";
+	}
 }

@@ -12,11 +12,11 @@ public class LoginUi extends BaseUi{
 		String password = "";
 		
 		while (true) {
-			username = InputUtility.inputString("Acc : ", 1);
+			username = InputUtility.inputString("Acc : ");
 			if (username.equalsIgnoreCase("q")) {
 				break;
 			}
-			password = InputUtility.inputString("Pass: ", 1);
+			password = InputUtility.inputString("Pass: " );
 			if (authMgr.login(username, password)) {
 				System.out.println("Login Success");
 				break;

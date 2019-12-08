@@ -1,6 +1,7 @@
 package cy.movie.control;
 
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -10,7 +11,7 @@ import cy.movie.entity.Holiday;
 import cy.movie.util.DateUtility;
 import cy.movie.value.TimeUnit;
 
-public class HolidayManager {
+public class HolidayManager implements Serializable {
 	HashMap<Integer, ArrayList<Holiday>> holidays;
 	
 	public HolidayManager() {

@@ -76,14 +76,14 @@ public class InputUtility implements AppConstants {
 		return input;
 	}
 
-	public static String inputString(String hint, int length) {
-		if (length<1) {
+	public static String inputString(String hint, int maxLength) {
+		if (maxLength<1) {
 			throw new IllegalArgumentException("length should be at least 1");
 		}
 		String input;
 		do {
 			input = inputString(hint);
-		} while (input.length()>length);
+		} while (input.length()>maxLength);
 		return input;
 	}
 	

@@ -1,6 +1,7 @@
 package cy.movie.boundary;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import cy.movie.boundary.OptionsSelector.OnSelectOptionCallback;
 
@@ -10,18 +11,22 @@ public abstract class BaseMenuSelectionUi extends BaseUi implements OnSelectOpti
 
 	public BaseMenuSelectionUi() {
 		menu = new ArrayList<String>();
-		initMenu(menu);
-		optionSelector = new OptionsSelector<String>(0, menu, this);
+		optionSelector = new OptionsSelector<String>(0, menu);
 	}
 	protected final ArrayList<String> getMenu(){
 		return menu;
 	}
-	protected abstract void initMenu(ArrayList<String> menu);
+	protected final void initMenu(ArrayList<String> menu) {
+		this.menu.clear();
+		this.menu.addAll(menu);
+	}
+	protected final void initMenu(String... menu) {
+		this.menu.clear();
+		this.menu.addAll(Arrays.asList(menu));
+	}
 	
 	protected final OptionsSelector<String> getOptionSelector() {
 		return optionSelector;
 	}
 	
-
-
 }

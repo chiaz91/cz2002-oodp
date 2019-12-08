@@ -8,7 +8,9 @@ public class App implements AppConstants{
 	public void run() {
 //		Log.setLevel(Log.LEVEL_INFO);
 		Log.i("App version: "+APP_VERION);
-		new MainUi().start();
+		AppData.getInstance().load();
+		new MainUi().start();		
+		AppData.getInstance().save();
 		Log.i("App Ended");
 	}
 	

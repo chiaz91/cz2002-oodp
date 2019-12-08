@@ -3,7 +3,7 @@ package cy.movie.entity;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import cy.movie.ScheduleManager;
+import cy.movie.control.ScheduleManager;
 
 public class Cineplex implements Serializable{
 	public static final int NUM_MIN_CINEMAS = 2;
@@ -48,6 +48,11 @@ public class Cineplex implements Serializable{
 
 	public ScheduleManager getScheduleManager() {
 		return scheduleMgr;
+	}
+
+	@Override
+	public String toString() {
+		return "Cineplex [name=" + name + "]";
 	}
 
 

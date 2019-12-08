@@ -1,6 +1,7 @@
 package cy.movie.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Set;
 
 public class Cinema implements Serializable{
@@ -11,9 +12,9 @@ public class Cinema implements Serializable{
 	// for layout
 	private int rows;
 	private int cols;
-	private Set<Integer> stairways;
+	private ArrayList<Integer> stairways;
 	
-	public Cinema(String code, String type, double price, int rows, int cols, Set<Integer> stairways) {
+	public Cinema(String code, String type, double price, int rows, int cols, ArrayList<Integer> stairways) {
 		super();
 		this.code = code;
 		this.type = type;
@@ -63,12 +64,48 @@ public class Cinema implements Serializable{
 		this.cols = cols;
 	}
 
-	public Set<Integer> getStairways() {
+	public ArrayList<Integer> getStairways() {
 		return stairways;
 	}
 
-	public void setStairways(Set<Integer> stairways) {
+	public void setStairways(ArrayList<Integer> stairways) {
 		this.stairways = stairways;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((code == null) ? 0 : code.hashCode());
+		result = prime * result + ((type == null) ? 0 : type.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Cinema other = (Cinema) obj;
+		if (code == null) {
+			if (other.code != null)
+				return false;
+		} else if (!code.equals(other.code))
+			return false;
+		if (type == null) {
+			if (other.type != null)
+				return false;
+		} else if (!type.equals(other.type))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "Cinema [" + code + "]";
 	}
 	
 	
